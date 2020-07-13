@@ -1,0 +1,72 @@
+Liczba $2log_3 6-log_3 4$ jest równa
+4
+2
+$2log_3 2$
+$log_3 8$
+B
+Liczba $\sqrt[3]{\frac{7}{3}}\cdot\sqrt[3]{\frac{81}{56}}$ jest równa
+$\frac{\sqrt{3}}{2}$
+$\frac{3}{2\sqrt[3]{21}}$
+$\frac{3}{2}$
+$\frac{9}{4}$
+C
+Dane są liczby $a=3,6\cdot 10^{-12}$ oraz $b=2,4\cdot 10^{-20}$. Wtedy iloraz jest rowny
+$8,64\cdot 10^{-32}$
+$1,5\cdot 10^{-8}$
+$1,5\cdot 10^8$
+$8,64\cdot 10^{32}$
+C
+Cena roweru po obniżce 15% była równa 850 zł. Przed obniżką ten rower kosztował
+865,00 zł
+850,15 zł
+1000,00 zł
+977,50 zł
+C
+Zbiorem wszystkich rozwiazań nierówności jest przedział $\frac{1-2x}{2}>\frac{1}{3}$
+$\left(-\infty,\frac{1}{6}\right)$
+$\left(-\infty,\frac{2}{3}\right)$
+$\left(\frac{1}{6},{+\infty}\right)$
+$\left(\frac{2}{3},{+\infty}\right)$
+A
+Przyprostokątna LM trójkąta prostokątnego KLM ma długość 3, a przeciwprostokątna KL ma długość 8. (zobacz rysunek). <br><img src="zdjecia/2.PNG">
+$27^o\lt\alpha\leq30^o$
+$24^o\lt\alpha\leq27^o$
+$21^o\lt\alpha\leq24^o$
+$18^o\lt\alpha\leq27^o$
+C
+Dany jest okrąg o środku S. Punkty K, L i M leżą na tym samym okręgu. Na łuku KL tego okręgu są oparte kąty KSL i KML (zobacz rysunek), których miary $\alpha$ i $\beta$ spełniają warunek $\alpha+\beta=111^o$. Wynika stąd, że <br><img src="zdjecia/3.PNG">
+$\alpha = 74^o$
+$\alpha = 76^o$
+$\alpha = 70^o$
+$\alpha = 72^o$
+A
+W pudełku jest 50 kuponów, wśród których jest 15 kuponów przegrywających, a pozostałe kupony są wygrywające. Z tego pudełka w sposób losowy wyciągamy jeden kupon. Prawdopodobieństwo zdarzenia polegającego na tym, że wyciągniemy kupon wygrywający, jest równe
+$\frac{15}{35}$
+$\frac{1}{50}$
+$\frac{15}{50}$
+$\frac{35}{50}$
+D
+Ile jest wszystkich liczb naturalnych czterocyfrowych mniejszych od 2018 i podzielnych przez 5?
+402
+403
+203
+204
+D
+Dla ciągu arytmetycznego $\left(a_n\right)$, określonego dla $n\geq1$, jest spełniony warunek $a_4+a_5+a_6=12$. Wtedy
+$a_5=4$
+$a_5=3$
+$a_5=6$
+$a_5=5$
+A
+Dany jest ciąg $\left(a_n\right)$ określony wzorem $a_n=\frac{5-2n}{6}$ dla $n\geq1$. Ciąg ten jest
+arytmetyczny i jego różnica jest równa $r=-\frac{1}{3}$
+arytmetyczny i jego różnica jest równa $r=-2$
+geometryczny i jego różnica jest równa $q=-\frac{1}{3}$
+geometryczny i jego różnica jest równa $q=\frac{5}{6}$
+A
+Wykresem funkcji kwadratowej jest $f(x)=x^2-6x-3$ jest parabola, której wierzchołkiem jest punkt o współrzędnych
+$\left(-6,-3\right)$
+$\left(-6,69\right)$
+$\left(3,-12\right)$
+$\left(6,-3\right)$
+C

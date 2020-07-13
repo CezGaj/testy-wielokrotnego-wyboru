@@ -1,0 +1,60 @@
+Zaznacz odpowiedzi prawdziwe. 
+Deskryptor 0 to odczyt, a 1 to zapis
+Deskryptor 1 to zapis, a 0 to odczyt 
+Jeśli jest błąd to zwracany jest wynik 0
+Jeśli jest błąd to zwracany jest wynik -1
+AD
+Funkcja read:
+Działa jeśli deskryptor odniesie się do katalogu
+Wynikiem jest true lub false 
+Odczyta jeśli plik jest otwarty w trybie tylko do zapisu
+Wynikiem jest liczba odczytanych bajtów
+D
+Ile razy wyświetli się napis "aaa"? <br><img src="zdjecia/1.jpg">
+2
+4
+6
+8
+C
+Funkcja fork:
+Tworzy proces macierzysty
+Tworzy proces potomny
+Pid utworzonego procesu wynosi 0
+Utworzone procesy działają równocześnie
+BCD
+Proces zombi:
+Zachodzi kiedy proces potomny zakończy się przed macierzystym
+Zachodzi kiedy proces macierzysty zakończy się przed potomnym
+Mozna go usunac uzywajac funkcji wait
+Zajmuje pamięć i miejsce w tablicy procesów
+AC
+Zaznacz odpowiedzi prawdziwe.
+execlp wykonuje zadania powłoki
+execl uruchamia plik
+execvpe uruchamia plik
+execvpe wykonuje zadania powloki
+AB
+Który wiersz odczytuje rozmiar pliku?
+lseek(fd,1000,SEEK_END);
+lseek(fd,0,SEEK_END);
+lseek(fd,1000,SEEK_SET);
+lseek(fd,0,SEEK_SET);
+B
+wait(&status)?
+Czeka na sposób zakończenia potomka
+Czeka na sposób zakończenia rodzica
+Status musi być typu string
+Status musi być typu int
+AD
+Jaką wartość zwraca getppid()?
+Pid procesu potomnego
+Pid procesu macierzystego
+0
+1
+B
+Jakim poleceniem można usunąć katalog ~/dir, zakładając że nie jest pusty?
+rmdir
+rm -f
+rm -r 
+rm -rI
+CD 
