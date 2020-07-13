@@ -89,7 +89,7 @@ $wynik=$wynik+$liczba;
 //echo "$wynik<br>";
 }
 include 'connect.php';
-$sql="INSERT INTO wyniki (nr_indeksu,wynik) VALUES ('$nr_indeksu','$wynik')"; 
+$sql="INSERT INTO wyniki (nr_indeksu,wynik) VALUES ($nr_indeksu,$wynik)"; 
 
 if ($conn->query($sql) !== TRUE) 
 {
