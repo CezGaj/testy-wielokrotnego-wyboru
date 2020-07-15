@@ -89,8 +89,10 @@ $wynik=$wynik+$liczba;
 //echo "$wynik<br>";
 }
 include 'connect.php';
-$statement = $pdo->prepare("INSERT INTO wyniki (nr_indeksu,wynik) VALUES ($nr_indeksu,$wynik)");
-$statement->execute(array("$nr_indeksu" => $row['nr_indeksu'], "$wynik" => $row['wynik']));
+$stat = $pdo->prepare("INSERT INTO wyniki (nr_indeksu,wynik) VALUES (:nr_indeksu,:wynik)");
+$stat->bindValue(':nr_indeksu',$nr_indeksu);
+$stat->bindValue(':wynik',$wynik);
+$stat->execute();
 
 $pdo=null;
 
