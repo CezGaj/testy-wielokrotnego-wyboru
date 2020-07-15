@@ -90,8 +90,8 @@ $wynik=$wynik+$liczba;
 }
 include 'connect.php';
 $stat = $pdo->prepare("INSERT INTO wyniki (nr_indeksu,wynik) VALUES (:nr_indeksu,:wynik)");
-$stat->bindValue(':nr_indeksu',$nr_indeksu);
-$stat->bindValue(':wynik',$wynik);
+$stat->bindValue(':nr_indeksu',$nr_indeksu,PDO::PARAM_INT);
+$stat->bindValue(':wynik',(float)$wynik,PDO::PARAM_STR);
 $stat->execute();
 
 $pdo=null;
