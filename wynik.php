@@ -89,13 +89,10 @@ $wynik=$wynik+$liczba;
 //echo "$wynik<br>";
 }
 include 'connect.php';
-$sql="INSERT INTO wyniki (nr_indeksu,wynik) VALUES ($nr_indeksu,$wynik)"; 
+$statement = $db->prepare("INSERT INTO wyniki (nr_indeksu,wynik) VALUES ($nr_indeksu,$wynik)");
+$statement->execute(array($nr_indeksu => $row['nr_indeksu']),array($wynik => $row['wynik']));
 
-if (!$conn->query($sql)) 
-{
-    echo "Error:  $sql <br>" . $conn->error;
-}
-$conn->close();
+$pdo=null;
 
 echo "Numer indeksu: <b>$nr_indeksu</b><br>";
 echo "Zdobyłeś $wynik na $ilosc_pytan pkt <br>";
