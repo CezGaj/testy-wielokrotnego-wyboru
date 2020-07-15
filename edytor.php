@@ -15,11 +15,6 @@
 <legend>Lista wynikowa:</legend>
 <?php
 require 'connect.php';
-// Check connection
-if ($conn->connect_error) 
-{
-    die("Connection failed: " . $conn->connect_error);
-}
 if(isset($_POST["deleteall"]))
 {
 $sql="TRUNCATE TABLE wyniki";
