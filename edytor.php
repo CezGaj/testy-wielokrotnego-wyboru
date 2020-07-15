@@ -1,4 +1,4 @@
-<html id="disp">
+ute<html id="disp">
 <head>
 <meta charset="utf-8">
 <title>Menadżer wyników</title>
@@ -21,7 +21,7 @@ $stmt = $pdo->query('TRUNCATE TABLE wyniki');
 $stmt->closeCursor();	
 }
 $stmt = $pdo->query('SELECT * FROM wyniki ORDER BY nr_indeksu asc');
-if ($stmt->num_rows > 0) 
+if ($stmt->execute() > 0) 
 {
     $li=0;
     if(isset($_POST["sav"])) 
