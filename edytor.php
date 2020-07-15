@@ -17,20 +17,11 @@
 require 'connect.php';
 if(isset($_POST["deleteall"]))
 {
-$sql="TRUNCATE TABLE wyniki";
-if ($conn->query($sql) === TRUE) 
-{
-    echo "Usunieto pomyslnie!".'<br>';
-} 
-else 
-{
-    echo "Błąd usuwania: " . $conn->error.'<br>';
-}	
+$stmt = $pdo->query('TRUNCATE TABLE wyniki');
+$stmt->closeCursor();	
 }
-
-$sql="SELECT * FROM wyniki ORDER BY nr_indeksu asc";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) 
+$stmt = $pdo->query('SELECT * FROM wyniki ORDER BY nr_indeksu asc');
+if ($stmt->num_rows > 0) 
 {
     $li=0;
     if(isset($_POST["sav"])) 
@@ -40,7 +31,7 @@ if ($result->num_rows > 0)
         $plik=fopen("wyniki-$t.txt","w");
     }
     echo '<table class="table"><tr><th>numer indeksu</th><th>wynik</th></table>';
-while($row = $result->fetch_assoc()) 
+while($row = $stmt->fetch()) 
 {
     $usuniete=false;
     if(isset($_POST["delet"])) 
@@ -49,8 +40,8 @@ while($row = $result->fetch_assoc())
         if(isset($_POST["$x"]))
         {
             $y=$_POST["$x"];
-            $sql2="DELETE FROM wyniki WHERE nr_indeksu=$x AND wynik=$y";
-            if($conn->query($sql2)!== TRUE) echo "Błąd usuwania: " . $conn->error.'<br>';
+            $stmt = $pdo->exec("DELETE FROM wyniki WHERE nr_indeksu=$x AND wynik=$y");
+            if($stmt==0) echo 'Błąd usuwania: <br>';
             else $usuniete=true; 
         }
     }
@@ -65,7 +56,7 @@ while($row = $result->fetch_assoc())
     }
 }
 
-$conn->close();
+$stmt->closeCursor();	
 ?>
 </fieldset>
 <br>
