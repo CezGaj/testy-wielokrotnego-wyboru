@@ -1,4 +1,4 @@
-ute<html id="disp">
+<html id="disp">
 <head>
 <meta charset="utf-8">
 <title>Menadżer wyników</title>
