@@ -91,7 +91,7 @@ $wynik=$wynik+$liczba;
 include 'connect.php';
 $sql="INSERT INTO wyniki (nr_indeksu,wynik) VALUES ($nr_indeksu,$wynik)"; 
 
-if ($conn->query($sql) !== TRUE) 
+if (!$conn->query($sql)) 
 {
     echo "Error:  $sql <br>" . $conn->error;
 }
