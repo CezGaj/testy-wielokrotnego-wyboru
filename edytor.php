@@ -44,7 +44,7 @@ while($row = $stmt->fetch())
     if($usuniete==false) 
     {
         echo '<div><input type="checkbox" id="'.$li.'" name="'.$row["nr_indeksu"].'" value="'.$row["wynik"].'"/><label for="'.$li.'"><table class="table"><tr><td>'.$row["nr_indeksu"].'</td><td>'.$row["wynik"].'</td></tr></table></label></div>';
-        echo '<script>lista.push([json_encode($row["nr_indeksu"]),json_encode($row["wynik"])]);</script>';
+        echo '<script>lista.push(['.json_encode($row["nr_indeksu"]).','.json_encode($row["wynik"]).']);</script>';
     }
     $li++;
 }
@@ -59,7 +59,7 @@ $stmt->closeCursor();
     <div class="row justify-content-center">  
         <div class="col-md-4"><center><input type="submit" class="btn btn-primary mb-2" name="deleteall" value="Usuń wszystko"/></center></div>
         <div class="col-md-4"><center><input type="submit" class="btn btn-primary mb-2" name="delet" value="Usuń zaznaczone"/></center></div>
-        <div class="col-md-4"><center><button class="btn btn-primary mb-2" name="sav" onclick="zapisz();"/>Zapisz do pliku</button></div>
+        <div class="col-md-4"><center><button class="btn btn-primary mb-2" name="sav" onclick="zapisz();">Zapisz do pliku</button></div>
     </div>
 </div>
 <br>
@@ -79,7 +79,7 @@ function zapisz()
     var blob = new Blob([tekst], {type: "text/plain;charset=utf-8"});
     var url = window.URL.createObjectURL(blob);
     a.href = url;
-    a.download = fileName;
+    a.download = "wyniki.txt";
     a.click();
     window.URL.revokeObjectURL(url);
 }
