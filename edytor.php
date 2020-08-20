@@ -59,7 +59,7 @@ $stmt->closeCursor();
     <div class="row justify-content-center">  
         <div class="col-md-4"><center><input type="submit" class="btn btn-primary mb-2" name="deleteall" value="Usuń wszystko"/></center></div>
         <div class="col-md-4"><center><input type="submit" class="btn btn-primary mb-2" name="delet" value="Usuń zaznaczone"/></center></div>
-        <div class="col-md-4"><center><input type="button" class="btn btn-primary mb-2" name="sav" value="Zapisz do pliku" onclick="zapisz();"/></center></div>
+        <div class="col-md-4"><center><button class="btn btn-primary mb-2" name="sav" onclick="zapisz();"/>Zapisz do pliku</button></div>
     </div>
 </div>
 <br>
