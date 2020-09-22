@@ -15,7 +15,7 @@
     <br><h2 style="text-align: center;">Panel logowania</h2>
         <hr>
              <div id="start">
-                  <input type="text" class="form-control" id="id" name="id" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="login" disabled/>
+                  <input type="text" class="form-control" id="id" name="id" maxlength="20" placeholder="login" disabled/>
                   <input type="password" class="form-control" id="pass" name="pass" placeholder="hasło" disabled/><br><br><br>
                   <input type="submit" class="btn btn-primary mb-2" id="rozpo" name="test" value="Przejdź dalej" disabled/><br>
              </div>

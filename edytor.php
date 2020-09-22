@@ -1,7 +1,7 @@
 <html id="disp">
 <head>
 <meta charset="utf-8">
-<title>Menadżer wyników</title>
+<title>Menedżer wyników</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -11,7 +11,7 @@
 </head>
 <body>
 <script>
-var lista = [];    
+var lista = [];
 </script>
 <form action="edytor.php" method="post" autocomplete="off">
 <fieldset>
@@ -19,47 +19,56 @@ var lista = [];
 require 'connect.php';
 if(isset($_POST["deleteall"]))
 {
-$stmt = $pdo->exec('TRUNCATE TABLE wyniki');
-$stmt->closeCursor();	
+$sql="TRUNCATE TABLE wyniki";
+if ($conn->query($sql) === TRUE) 
+{
+    echo "Usunieto pomyslnie!".'<br>';
+} 
+else 
+{
+    echo "Błąd usuwania: " . $conn->error.'<br>';
+}	
 }
-$stmt = $pdo->query('SELECT * FROM wyniki ORDER BY nr_indeksu asc');
-if ($stmt->execute() > 0) 
+
+$sql="SELECT * FROM wyniki ORDER BY login asc";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) 
 {
     $li=0;
-    echo '<table class="table"><tr><th>numer indeksu</th><th>wynik</th></table>';
-while($row = $stmt->fetch()) 
+    echo '<table class="table"><tr><th>login</th><th>wynik</th></table>';
+while($row = $result->fetch_assoc()) 
 {
     $usuniete=false;
     if(isset($_POST["delet"])) 
     {
-        $x=$row["nr_indeksu"];
+        $x=$row["login"];
         if(isset($_POST["$x"]))
         {
             $y=$_POST["$x"];
-            $stmt = $pdo->exec("DELETE FROM wyniki WHERE nr_indeksu=$x AND wynik=$y");
-            if($stmt==0) echo 'Błąd usuwania: <br>';
+            $sql2="DELETE FROM wyniki WHERE login=$x AND wynik=$y";
+            if($conn->query($sql2)!== TRUE) echo "Błąd usuwania: " . $conn->error.'<br>';
             else $usuniete=true; 
         }
     }
     if($usuniete==false) 
-    {
-        echo '<div><input type="checkbox" id="'.$li.'" name="'.$row["nr_indeksu"].'" value="'.$row["wynik"].'"/><label for="'.$li.'"><table class="table"><tr><td>'.$row["nr_indeksu"].'</td><td>'.$row["wynik"].'</td></tr></table></label></div>';
-        echo '<script>lista.push(['.json_encode($row["nr_indeksu"]).','.json_encode($row["wynik"]).']);</script>';
-    }
+	{
+		echo '<div><input type="checkbox" id="'.$li.'" name="'.$row["login"].'" value="'.$row["wynik"].'"/><label for="'.$li.'"><table class="table"><tr><td>'.$row["login"].'</td><td>'.$row["wynik"].'</td></tr></table></label></div>'; 
+		echo '<script>lista.push(['.json_encode($row["login"]).','.json_encode($row["wynik"]).']);</script>';
+	}
     $li++;
 }
 
 }
 
-$stmt->closeCursor();	
+$conn->close();
 ?>
 </fieldset>
 <br>
 <div class="container-flush">
     <div class="row justify-content-center">  
-        <div class="col-md-4"><center><input type="submit" class="btn btn-primary mb-2" name="deleteall" value="Usuń wszystko"/></center></div>
-        <div class="col-md-4"><center><input type="submit" class="btn btn-primary mb-2" name="delet" value="Usuń zaznaczone"/></center></div>
-        <div class="col-md-4"><center><button class="btn btn-primary mb-2" name="sav" onclick="zapisz();">Zapisz do pliku</button></div>
+        <input type="submit" class="btn btn-primary mb-2 col-md-4" name="deleteall" value="Usuń wszystko"/>
+        <input type="submit" class="btn btn-primary mb-2 col-md-4" name="delet" value="Usuń zaznaczone"/>
+        <button class="btn btn-primary mb-2 col-md-4" name="sav" onclick="zapisz();">Zapisz do pliku</button>
     </div>
 </div>
 <br>

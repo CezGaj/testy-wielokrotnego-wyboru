@@ -1,21 +1,11 @@
 <?php
-$db = parse_url(getenv("DATABASE_URL"));
-
-try
+$host="localhost";
+$user="id14932264_id7875961_admin";
+$pass="jTK(RXPx/-hrP7H(";
+$dbname="id14932264_wyniki";
+$conn = new mysqli($host, $user, $pass, $dbname);
+if ($conn->connect_error) 
 {
-$pdo = new PDO("pgsql:" . sprintf(
-    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-    $db["host"],
-    $db["port"],
-    $db["user"],
-    $db["pass"],
-    ltrim($db["path"], "/")
-));
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    die("Connection failed: " . $conn->connect_error);
 }
-catch(PDOException $e)
-{
-  echo 'Error: ' . $e->getMessage();
-}
-
 ?>

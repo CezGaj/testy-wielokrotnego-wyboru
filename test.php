@@ -43,7 +43,7 @@ var x = setInterval(function()
 </script>
 <form action="wynik.php" method="post">
 <?php
-if(isset($_POST["test"])&&isset($_POST["id"])&&is_numeric($_POST["id"])&&$_POST["id"]>0&&isset($_POST["pass"]))
+if(isset($_POST["test"])&&isset($_POST["id"])&&isset($_POST["pass"]))
 {
 echo '<title>Użytkownik '.$_POST["id"].'</title>';    
 $_SESSION["id"]=$_POST["id"];

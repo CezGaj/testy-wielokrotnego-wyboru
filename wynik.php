@@ -27,7 +27,7 @@ if(isset($_POST["submit"]))
 $godzina_koniec=date("H:i:s");    
 $wynik = 0;
 $ilosc_pytan = $_SESSION["nr_pytania"];
-$nr_indeksu = $_SESSION["id"];
+$login = $_SESSION["id"];
 $values = array('A','B','C','D');
 for($i=0;$i<$ilosc_pytan;$i++)
 {
@@ -88,15 +88,16 @@ if($zaznaczone==false) $liczba=0;
 $wynik=$wynik+$liczba;
 //echo "$wynik<br>";
 }
-include 'connect.php';
-$stat = $pdo->prepare("INSERT INTO wyniki (nr_indeksu,wynik) VALUES (:nr_indeksu,:wynik)");
-$stat->bindValue(':nr_indeksu',$nr_indeksu,PDO::PARAM_INT);
-$stat->bindValue(':wynik',(float)$wynik,PDO::PARAM_STR);
-$stat->execute();
+require 'connect.php';
+$sql="INSERT INTO wyniki (login,wynik) VALUES ('$login','$wynik')"; 
 
-$pdo=null;
+if ($conn->query($sql) !== TRUE) 
+{
+    echo "Error:  $sql <br>" . $conn->error;
+}
+$conn->close();
 
-echo "Numer indeksu: <b>$nr_indeksu</b><br>";
+echo "Login: <b>$login</b><br>";
 echo "Zdobyłeś $wynik na $ilosc_pytan pkt <br>";
 $procent=($wynik/$ilosc_pytan)*100;
 echo "Wynik: ".round($procent,2)."%<br>";
