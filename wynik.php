@@ -129,7 +129,7 @@ echo '<title>Błąd</title>';
 echo 'Nie zalogowałeś się i nie wypełniłeś testu.';
 }
 ?>
-<form action="index.php" method="post">
+<form action="index.html" method="post">
 <center><input type="submit" class="btn btn-primary mb-2" value="Powrót"/></center>   
 </form>
 </body>
