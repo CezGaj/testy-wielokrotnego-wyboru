@@ -50,13 +50,13 @@ $_SESSION["id"]=$_POST["id"];
 $_SESSION["pass"]=$_POST["pass"];
 if (($handle = fopen("config.csv", "r")) !== FALSE) {
 	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-		$num=count(data);
+		$num=count($data);
 		if($num==5)
 		{
 		   if(strcmp($data[0],md5($_POST["pass"]))==0)
 		   {
-		      $plik=$data[1];
-		      $_POST["plik"]="testy/".$plik;
+		      $plik="testy/".$data[1];
+		      $_POST["plik"]=$plik;
 		      $_SESSION["plik"]=$_POST["plik"];
 		      $poziom_trudnosci=$data[2];
 		      $_POST["poz_trud"]=$poziom_trudnosci;
@@ -135,7 +135,7 @@ else
     echo '</form>Żeby się zalogować, naciśnij przycisk Powrót';
     echo '<noscript><b>Włącz JavaScript</b></noscript>';
     echo '<br>';
-    echo '<form action="index.php" method="post"><center><input type="submit" class="btn btn-primary mb-2" value="Powrót"/></center></form>';
+    echo '<form action="index.html" method="post"><center><input type="submit" class="btn btn-primary mb-2" value="Powrót"/></center></form>';
 }
 ?>
 </body>
