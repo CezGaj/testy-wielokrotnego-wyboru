@@ -48,28 +48,32 @@ if(isset($_POST["test"])&&isset($_POST["id"])&&isset($_POST["pass"]))
 echo '<title>Użytkownik '.$_POST["id"].'</title>';    
 $_SESSION["id"]=$_POST["id"];
 $_SESSION["pass"]=$_POST["pass"];
-$file=file("config.txt");
-for($i=0;$i<count($file);$i=$i+5)
-{
-    $text=trim($file[$i]);
-    if(strcmp($text,md5($_POST["pass"]))==0)
-    {
-        $plik=trim($file[$i+1]);
-        $_POST["plik"]=$plik;
-        $_SESSION["plik"]=$_POST["plik"];
-        $poziom_trudnosci=trim($file[$i+2]);
-        $_POST["poz_trud"]=$poziom_trudnosci;
-        $_SESSION["poz_trud"]=$_POST["poz_trud"];
-        $tryb=trim($file[$i+3]);
-        $_POST["tryb"]=$tryb;
-        $_SESSION["tryb"]=$_POST["tryb"];
-        $czas=trim($file[$i+4]);
-        settype($czas,"integer");
-        echo '<script>';
-        echo 'var m = '.json_encode($czas). ';';
-        echo '</script>';
-        break;
-    }    
+if (($handle = fopen("config.csv", "r")) !== FALSE) {
+	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		$num=count(data);
+		if($num==5)
+		{
+		   if(strcmp($data[0],md5($_POST["pass"]))==0)
+		   {
+		      $plik=$data[1];
+		      $_POST["plik"]="testy/".$plik;
+		      $_SESSION["plik"]=$_POST["plik"];
+		      $poziom_trudnosci=$data[2];
+		      $_POST["poz_trud"]=$poziom_trudnosci;
+		      $_SESSION["poz_trud"]=$_POST["poz_trud"];
+		      $tryb=$data[3];
+		      $_POST["tryb"]=$tryb;
+		      $_SESSION["tryb"]=$_POST["tryb"];	   
+		      $czas=$data[4];
+		      settype($czas,"integer");
+		      echo '<script>';
+		      echo 'var m = '.json_encode($czas). ';';
+		      echo '</script>';
+		      break;
+		   }
+		}
+	}
+fclose($handle);
 }
 if(isset($plik)&&isset($poziom_trudnosci)&&isset($tryb)&&isset($czas)&&is_integer($czas))
 {
